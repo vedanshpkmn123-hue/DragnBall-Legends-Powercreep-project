@@ -220,7 +220,7 @@ print("     ENGINE ACCURACY & METRICS REPORT    ")
 print("=======================================================")
 print(f" Global Classification Accuracy: {global_accuracy * 100:.2f}%")
 print(" (Supervised tiers on held-out 20% | IsolationForest on full tier)")
-print(" (Three-state verdicts applied — UNDERPOWERED units never")
+print(" (Three-state verdicts applied - UNDERPOWERED units never")
 print("  counted as false positives for powercreep)\n")
 
 for tier, bucket in sorted(tier_models.items()):
