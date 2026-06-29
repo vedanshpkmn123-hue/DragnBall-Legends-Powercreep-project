@@ -69,10 +69,10 @@ for tag in character_tags:
     #append 
     character_data.append(character_info)
 
-# 5. Turn your master list of dictionaries into a structured data table
+#Turn your master list of dictionaries into a structured data table
 df = pd.DataFrame(character_data)
 
-# 6. Save it to a clean CSV file inside your local directory
+#Save it to a clean CSV file inside your local directory
 df.to_csv("dbl_meta_dataset.csv", index=False)
 
 print(f"Extraction successful! Saved {len(df)} character records to dbl_meta_dataset.csv.")
