@@ -18,26 +18,26 @@ An end-to-end, multi-paradigm data science pipeline that analyzes and predicts m
 
 ### 1. Hybrid Machine Learning Pipeline
 Games scale differently across character tiers. The engine dynamically checks the density of each `rarity_tier` and automatically selects the optimal algorithmic path:
-* **Supervised Tier Approach ($\ge 50$ units)**: Utilizes a `GradientBoostingClassifier`[cite: 3]. It handles gacha dataset imbalance by applying **SMOTE (Synthetic Minority Over-sampling Technique)**[cite: 3] to synthetically scale up the true powercrept minority class for robust training[cite: 3].
-* **Unsupervised Fallback Tier ($< 50$ units)**: Automatically falls back to an `IsolationForest`[cite: 3], dynamically tuning its `contamination` rate to the exact statistical proportion of the target tier's outliers[cite: 3].
+* **Supervised Tier Approach ($\ge 50$ units)**: Utilizes a `GradientBoostingClassifier`. It handles gacha dataset imbalance by applying **SMOTE (Synthetic Minority Over-sampling Technique)** to synthetically scale up the true powercrept minority class for robust training.
+* **Unsupervised Fallback Tier ($< 50$ units)**: Automatically falls back to an `IsolationForest`, dynamically tuning its `contamination` rate to the exact statistical proportion of the target tier's outliers.
 
 ### 2. Domain-Specific Feature Engineering
 Instead of passing raw features independently, the engine transforms the data space into 4 synergistic interaction features to capture complex character build profiles:
-* **Composite Power Score**: A weighted domain formula evaluating a character's complete overall value across all 7 base stats[cite: 3].
-* **Offense/Defense & Offense/HP Ratios**: Captures mathematical stat optimization efficiency[cite: 3].
-* **Crit × Offense & Ki × Offense Interactions**: Isolates hyper-aggressive utility threats[cite: 3].
+* **Composite Power Score**: A weighted domain formula evaluating a character's complete overall value across all 7 base stats.
+* **Offense/Defense & Offense/HP Ratios**: Captures mathematical stat optimization efficiency.
+* **Crit × Offense & Ki × Offense Interactions**: Isolates hyper-aggressive utility threats.
 
 ### 3. Three-State Verdict Engine
-Unlike basic binary anomaly models, our model maps a multidimensional anomaly signal alongside a strict 1D **Z-Score Directional Cutoff** to predict a precise three-state meta classification[cite: 3]:
-*  `POWERCREPT` ($Z > +0.5$): Anomalously strong; pushes past ecosystem boundaries and warps the baseline stat ceiling[cite: 3].
-*  `BALANCED` (Within Tolerance): Fits cleanly within historical tier parameters; safe to release[cite: 3].
-*  `UNDERPOWERED` ($Z < -0.5$): Anomalously weak; fails to make any competitive statistical impact[cite: 3].
+Unlike basic binary anomaly models, our model maps a multidimensional anomaly signal alongside a strict 1D **Z-Score Directional Cutoff** to predict a precise three-state meta classification:
+*  `POWERCREPT` ($Z > +0.5$): Anomalously strong; pushes past ecosystem boundaries and warps the baseline stat ceiling.
+*  `BALANCED` (Within Tolerance): Fits cleanly within historical tier parameters; safe to release.
+*  `UNDERPOWERED` ($Z < -0.5$): Anomalously weak; fails to make any competitive statistical impact.
 
 ---
 
 ##  Model Performance & Validation Dashboard
 
-The evaluation system uses a strict **Three-State Verdict Validation Matrix**. Supervised tiers are strictly evaluated on a held-out **20% stratified test split**[cite: 3], ensuring zero data leakage, while underpowered anomalies are isolated so they never trigger false alarms in precision metrics[cite: 3].
+The evaluation system uses a strict **Three-State Verdict Validation Matrix**. Supervised tiers are strictly evaluated on a held-out **20% stratified test split**, ensuring zero data leakage, while underpowered anomalies are isolated so they never trigger false alarms in precision metrics.
 
 ```text
 =======================================================
