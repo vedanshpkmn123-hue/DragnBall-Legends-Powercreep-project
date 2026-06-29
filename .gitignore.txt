@@ -1,0 +1,8 @@
+# Python caches
+__pycache__
+.pyc
+
+# Local data files (optional, but keeps your repo light)
+.log
+.DS_Store
+.venv
